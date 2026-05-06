@@ -58,6 +58,7 @@ function Nav() {
     { href: "#integrations", label: "Integrations" },
     { href: "#pricing", label: "Pricing" },
     { href: "#faq", label: "FAQ" },
+    { href: "/demo", label: "AI Demo" },
   ];
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
