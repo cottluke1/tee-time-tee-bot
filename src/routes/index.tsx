@@ -376,79 +376,63 @@ function CallFlow() {
 }
 
 function Pricing() {
-  const plans = [
-    {
-      name: "Starter",
-      price: "$299",
-      period: "/mo",
-      desc: "For courses that want calls answered and booking requests captured.",
-      features: ["AI phone receptionist", "FAQ handling", "Booking request capture", "SMS / email notifications", "Staff escalation"],
-    },
-    {
-      name: "Growth",
-      price: "$799",
-      period: "/mo",
-      desc: "For courses that want deeper booking workflow support.",
-      features: ["Everything in Starter", "Tee time request management", "Calendar / availability workflow", "Confirmation texts", "Custom call scripts", "Basic reporting"],
-      featured: true,
-    },
-    {
-      name: "Pro",
-      price: "Custom",
-      period: "",
-      desc: "For courses that want direct tee sheet integration.",
-      features: ["Everything in Growth", "API or tee sheet integration", "Direct booking when available", "Custom routing rules", "Multi-course support", "Advanced analytics"],
-    },
+  const features = [
+    "24/7 AI phone receptionist",
+    "Tee time booking request capture",
+    "FAQ handling (rates, hours, dress code, range, carts)",
+    "SMS & email confirmations",
+    "Staff escalation for complex calls",
+    "Custom call scripts tailored to your course",
+    "Tee sheet integration where supported",
   ];
   return (
     <Section
       id="pricing"
       eyebrow="Pricing"
-      title="Simple Plans Based on Your Course's Needs"
+      title="One Simple Plan. Built for Every Course."
+      subtitle="No tiers. No surprises. Just a 24/7 AI receptionist working for your pro shop."
     >
-      <div className="grid gap-6 md:grid-cols-3">
-        {plans.map((p) => (
-          <div
-            key={p.name}
-            className={`relative flex flex-col rounded-3xl border p-8 ${
-              p.featured
-                ? "border-primary bg-ink text-primary-foreground shadow-elegant"
-                : "border-border bg-card text-ink shadow-card"
-            }`}
-          >
-            {p.featured && (
-              <span className="absolute -top-3 left-8 rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground">
-                Most popular
-              </span>
-            )}
-            <h3 className="font-display text-2xl">{p.name}</h3>
-            <div className="mt-4 flex items-baseline gap-1">
-              <span className="font-display text-5xl">{p.price}</span>
-              <span className={p.featured ? "text-primary-foreground/60" : "text-muted-foreground"}>{p.period}</span>
+      <div className="mx-auto max-w-3xl">
+        <div className="relative overflow-hidden rounded-3xl border border-primary bg-ink p-10 text-primary-foreground shadow-elegant md:p-12">
+          <span className="absolute -top-3 left-10 rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground">
+            Flat-rate pricing
+          </span>
+          <div className="grid gap-8 md:grid-cols-2 md:items-end">
+            <div>
+              <div className="text-xs uppercase tracking-widest text-secondary">One-time setup</div>
+              <div className="mt-2 flex items-baseline gap-1">
+                <span className="font-display text-5xl md:text-6xl">$300</span>
+              </div>
+              <p className="mt-2 text-sm text-primary-foreground/70">
+                Onboarding, call script customization, and number setup.
+              </p>
             </div>
-            <p className={`mt-3 text-sm ${p.featured ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
-              {p.desc}
-            </p>
-            <ul className="mt-6 space-y-3">
-              {p.features.map((f) => (
-                <li key={f} className="flex items-start gap-3 text-sm">
-                  <Check className={`mt-0.5 h-4 w-4 shrink-0 ${p.featured ? "text-secondary" : "text-primary"}`} />
-                  <span>{f}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-8">
-              <Button
-                asChild
-                variant={p.featured ? "beige" : "hero"}
-                className="w-full rounded-full"
-                size="lg"
-              >
-                <a href="#demo">Schedule a Demo</a>
-              </Button>
+            <div>
+              <div className="text-xs uppercase tracking-widest text-secondary">Then</div>
+              <div className="mt-2 flex items-baseline gap-1">
+                <span className="font-display text-5xl md:text-6xl">$99</span>
+                <span className="text-primary-foreground/60">/month</span>
+              </div>
+              <p className="mt-2 text-sm text-primary-foreground/70">
+                Everything included. Cancel anytime.
+              </p>
             </div>
           </div>
-        ))}
+          <div className="my-8 h-px bg-white/10" />
+          <ul className="grid gap-3 md:grid-cols-2">
+            {features.map((f) => (
+              <li key={f} className="flex items-start gap-3 text-sm text-primary-foreground/90">
+                <Check className="mt-0.5 h-4 w-4 shrink-0 text-secondary" />
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-10">
+            <Button asChild variant="beige" className="rounded-full" size="xl">
+              <a href="#demo">Book a Demo <ArrowRight className="h-4 w-4" /></a>
+            </Button>
+          </div>
+        </div>
       </div>
     </Section>
   );
